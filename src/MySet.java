@@ -4,4 +4,9 @@ public class MySet {
     public boolean mySetIsEmpty() {
         return isEmpty;
     }
+
+    public void addElement(){
+        mySetIsEmpty();
+
+    }
 }

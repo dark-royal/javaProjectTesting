@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MyStackTest {
@@ -62,14 +64,31 @@ public class MyStackTest {
     }
 
     @Test
-    public void pushFourList_lookAtTheObjectAtTheTopOfTheStackTest(){
-      assertTrue(myStack.isEmpty());
-      myStack.push(3);
-      myStack.push(2);
-      myStack.push(4);
-      assertEquals(4,myStack.peek());
+    public void pushFourList_lookAtTheObjectAtTheTopOfTheStackTest() {
+        assertTrue(myStack.isEmpty());
+        myStack.push(3);
+        myStack.push(2);
+        myStack.push(4);
+        assertEquals(4, myStack.peek());
+    }
+
+
+
+    @Test
+    public void getPeek_whenStackIsEmpty(){
+            assertTrue(myStack.isEmpty());
+            assertThrows(IllegalArgumentException.class,()-> myStack.peek());
+
+        }
+
+
+
+
+
+
+
+
     }
 
 
     
-}                               
