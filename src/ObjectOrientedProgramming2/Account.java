@@ -18,7 +18,8 @@ public class Account {
 
     }
 
-    public int getBalance(){
+
+    public int checkBalance(){
         return balance;
     }
 
@@ -34,18 +35,27 @@ public class Account {
         if(amount <=  0) throw new InvalidAmountException("amount should be greater than zero");
     }
 
-    public void withdraw(int amount) {
+    public void withdraw(int amount,String pin) {
         validateWithdraw(amount);
+        validatePin(pin);
         balance -= amount;
     }
 
     public void validateWithdraw(int amount){
-        if(amount <  0) throw  new InvalidAmountException("negative number cannot be withdrawn");
+        if(amount <=  0) throw  new InvalidAmountException("negative number cannot be withdrawn");
         if(amount > balance) throw new InsufficientFunctionException("amount above balance cannot be withdrawn");
     }
 
+    public void validatePin(String pin){
+        if(!this.pin.equals(pin))throw new InvalidPinException("pin is incorrect");
 
-    public void checkBalance() {
-    }
+
+        }
+
+
 }
+
+
+
+
 

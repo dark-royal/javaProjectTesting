@@ -22,12 +22,19 @@ public class BankTest {
        Account account1 = bank.registerCustomer("praise", "oyewole", "1234");
        Account account2 = bank.registerCustomer("israel", "nwanoloziri", "6841");
        Account account3 = bank.registerCustomer("ajibola", "hannah", "0912");
-//       accounts.add(account1);
-//       accounts.add(account2);
-//       accounts.add(account3);
 
        assertEquals(3,accounts.size());
+
     }
+
+
+//    @Test
+//    public void deposit(){
+//        Account account = new Account("praise",0,12345,"1234");
+//        bank.deposit(5000,1234);
+//        bank.deposit(2000,45432);
+//        assertEquals(7000,bank.galance(2123,"1234"));
+//    }
     }
 
 
