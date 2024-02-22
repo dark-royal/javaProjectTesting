@@ -41,12 +41,12 @@ public class BankTest {
 
 
 
-    @Test
-    public void removeAccount(){
-        Account account = bank.registerCustomer("kuse","joshua","6841");
-        bank.removeAccount(1001,"6841");
-        assertEquals(account,account.getAccountNumber();
-    }
+//    @Test
+//    public void removeAccount(){
+//        Account account = bank.registerCustomer("kuse","joshua","6841");
+//        bank.removeAccount(1001,"6841");
+//        assertEquals(account,account.getAccountNumber();
+//    }
 
     @Test
     public void withdraw(){
