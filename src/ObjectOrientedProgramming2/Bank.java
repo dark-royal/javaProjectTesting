@@ -8,7 +8,7 @@ public class Bank {
     ;
     private String bankName;
 
-    private int accountNumber;
+    private int accountNumber = 1000;
 
     private final List<Account> accounts;
 
@@ -66,20 +66,10 @@ public class Bank {
     }
 
     public void transfer(int amount, int receiverAccountNumber, int senderAccountNumber, String pin) {
-        for (Account account : accounts) {
-            if (account.getAccountNumber() == senderAccountNumber) {
-                account.deposit(amount);
-                account.withdraw(amount, pin);
-
-                for (Account account1 : accounts) {
-                    if (account1.getAccountNumber() == receiverAccountNumber) {
-                        account1.deposit(amount);
-                    }
-                }
-            }
-        }
-
-
+        Account senderAccountNum = findAccount(senderAccountNumber);
+        Account receiverAccountNum = findAccount(receiverAccountNumber);
+        senderAccountNum.withdraw(amount, pin);
+        receiverAccountNum.deposit(amount);
     }
 
 
@@ -88,9 +78,8 @@ public class Bank {
         account.withdraw(amount, pin);
     }
 
-//    public void removeAccount(int accountNumber,String pin){
-//
-//        }
-//    }
-//    }
+    public void removeAccount(int accountNumber, String pin) {
+        Account account = findAccount(accountNumber);
+        accounts.remove(accountNumber);
+    }
 }

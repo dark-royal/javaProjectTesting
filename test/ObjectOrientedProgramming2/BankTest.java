@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BankTest {
 
@@ -38,12 +39,14 @@ public class BankTest {
 
 
 
-//    @Test
-//    public void removeAccount(){
-//        Account account = bank.registerCustomer("kuse","joshua","6841");
-//        bank.removeAccount(1001,"6841");
-//        assertEquals(account,account.getAccountNumber());
-//    }
+
+
+    @Test
+    public void removeAccount(){
+        Account account = bank.registerCustomer("kuse","joshua","6841");
+        bank.removeAccount(1001,"6841");
+        assertEquals(account,account.getAccountNumber();
+    }
 
     @Test
     public void withdraw(){
@@ -59,10 +62,19 @@ public class BankTest {
     public void transfer(){
         Account senderAccountNumber = bank.registerCustomer("Dominic", "countinho","6841");
         Account receiverAccountNumber = bank.registerCustomer("praise", "nun","1234");
+        bank.deposit(5000,1001);
+        bank.transfer(3000,1002,1001,"6841");
+        assertEquals(2000,senderAccountNumber.getBalance("6841"));
+    }
+
+    @Test
+    public void transferAmountWithWrongPin_throwInvalidPinException(){
+        Account senderAccountNumber = bank.registerCustomer("praise","oye","2233");
+        Account receiverAccountNumber = bank.registerCustomer("florence","gold","1212");
         bank.deposit(2000,1001);
-        bank.withdraw(1001,1000,"6841");
-        bank.transfer(1000,1002,1001,"6841");
-        assertEquals(1000,senderAccountNumber.getBalance("6841"));
+        assertThrows(InvalidPinException.class,()-> bank.transfer(1000,1002,1001,"1212"));
+
+
     }
     @Test
     public void checkBalance() {
