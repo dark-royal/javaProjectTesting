@@ -68,11 +68,11 @@ public class ProblemTest {
         person.add(problem4);
         person.solve(problem2);
 
-        for (int i = 0; i < person.getSize(); i++) {
+
 
 
         }
-int i = 0;
+
     }
 
-}
+

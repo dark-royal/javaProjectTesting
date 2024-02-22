@@ -19,4 +19,7 @@ public class Problem {
         this.type = type;
     }
 
+
+
+
 }

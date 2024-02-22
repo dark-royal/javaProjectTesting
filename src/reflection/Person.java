@@ -17,6 +17,8 @@ public class Person {
     }
 
 
+
+
     public void solve(Problem problem){
         problems.remove(problem);
         problem4--;
@@ -35,5 +37,6 @@ public class Person {
     public int getSize() {
         return problems.size();
     }
+
 
 }

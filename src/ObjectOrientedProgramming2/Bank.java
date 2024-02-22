@@ -1,15 +1,21 @@
 package ObjectOrientedProgramming2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
 
-    private String name;
+    ;
+    private String bankName;
 
-    private  List<Account> accounts;
+    private int accountNumber;
 
-    public Bank(List<Account> accounts){
-        this.accounts = accounts;
+    private final List<Account> accounts;
+
+    public Bank(String bankName, int accountNumber) {
+        this.bankName = bankName;
+        this.accountNumber = accountNumber;
+        this.accounts = new ArrayList<>();
     }
 
     public List<Account> getAccount() {
@@ -17,11 +23,9 @@ public class Bank {
     }
 
 
-
-
-    public Account registerCustomer(String firstName, String lastName, String pin ){
-
-        Account account = new Account(firstName + " " + lastName, 0,accounts.size() +1, pin);
+    public Account registerCustomer(String firstName, String lastName, String pin) {
+        int accountNumber = generateAccount();
+        Account account = new Account(firstName + " " + lastName, accountNumber, pin);
 
         accounts.add(account);
 
@@ -30,29 +34,63 @@ public class Bank {
 
     }
 
-    public void deposit(int amount, int number){
-        Account account = new Account("praise", 0,22179,"0123");
-        account.deposit(5000);
+    private int generateAccount() {
+        return ++accountNumber;
+    }
+
+    public int getNumberOfAccount() {
+        return accounts.size();
+    }
+
+    public int checkBalance(String pin, int accountNumber) {
+        Account account = findAccount(accountNumber);
+        return account.getBalance(pin);
+    }
+
+    public void deposit(int amount, int accountNumber) {
+        Account account = findAccount(accountNumber);
+        account.deposit(amount);
 
     }
 
-//    public int checkBalance(int number, String pin ) {
-//        return  balance;
-//    }
 
-//    public void removeAccount(int number){
-//        Account account1 = new Account("praise", 0, accounts.size() + 1, "1234");
-//
-//    }
+    public Account findAccount(int accountNumber) {
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                return account;
+            }
 
-//    public Account findAccount(int number){
-//        for(Account account: accounts):
-//            if(accounts.== number) {
-//
-//            }
+        }
+        throw new IllegalArgumentException("no  such account  is found ");
+
+    }
+
+    public void transfer(int amount, int receiverAccountNumber, int senderAccountNumber, String pin) {
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == senderAccountNumber) {
+                account.deposit(amount);
+                account.withdraw(amount, pin);
+
+                for (Account account1 : accounts) {
+                    if (account1.getAccountNumber() == receiverAccountNumber) {
+                        account1.deposit(amount);
+                    }
+                }
+            }
+        }
+
+
     }
 
 
+    public void withdraw(int accountNumber, int amount, String pin) {
+        Account account = findAccount(accountNumber);
+        account.withdraw(amount, pin);
+    }
 
-
-
+//    public void removeAccount(int accountNumber,String pin){
+//
+//        }
+//    }
+//    }
+}

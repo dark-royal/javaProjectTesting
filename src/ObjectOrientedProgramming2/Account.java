@@ -1,31 +1,32 @@
 package ObjectOrientedProgramming2;
 
-import java.util.List;
-
 public class Account {
 
     private String name;
     private int balance = 0;
-    private String pin;
-    private int number;
+    private final String pin;
+    private final int number;
 
 
-    public Account(String name,int balance, int number, String pin){
+    public Account(String name, int number, String pin){
         this.name = name;
-        this.balance = balance;
         this.number = number;
         this.pin = pin;
 
     }
 
 
-    public int checkBalance(){
+
+    public int getBalance(String pin){
+        validatePin(pin);
         return balance;
     }
 
 
     public void deposit(int amount) {
+
         validateDeposit(amount);
+        validatePin(pin);
         balance += amount;
 
     }
@@ -53,6 +54,9 @@ public class Account {
         }
 
 
+    public int getAccountNumber() {
+        return number;
+    }
 }
 
 
