@@ -120,6 +120,12 @@ public class BankApp {
                 String pin = input("Enter pin");
                 bank.transfer(Integer.parseInt(amount), Integer.parseInt(senderAccountNumber), Integer.parseInt(receiverAccountNumber), pin);
                 System.out.println(amount + " " + "is transferred from" + senderAccountNumber + "to" + receiverAccountNumber);
+
+
+//                System.out.println(senderAccountNumber + "balance is remaining" + bank.checkBalance(pin, senderAccountNumber));
+//                System.out.println(receiverAccountNumber + "balance is now" + bank.checkBalance(pin, receiverAccountNumber));
+//
+
               }  catch (Exception e){
                 print(e.getMessage());
                 print("DO THE RIGHT THING");

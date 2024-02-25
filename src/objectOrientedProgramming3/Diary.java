@@ -17,6 +17,9 @@ public class Diary {
         this.password = password;
         this.entries = new ArrayList<>();
     }
+    public String getUserName(){
+        return userName;
+    }
 
 
     public boolean isLocked() {
@@ -34,8 +37,9 @@ public class Diary {
         isLocked = true;
     }
 
-    public void validatePassword(String password) {
+    public boolean validatePassword(String password) {
         if (!this.password.equals(password)) throw new InvalidPassWordException("invalid password,try again");
+        return false;
     }
 
     public void createEntry(String title, String body){
@@ -83,6 +87,8 @@ public class Diary {
 
 
     }
+
+
 }
 
 
