@@ -28,7 +28,8 @@ public class BankApp {
                 "\t\t\tEnter 3:Withdraw Amount\n" +
                 "\t\t\tEnter 4:Transfer Amount\n" +
                 "\t\t\tEnter 6:Remove Account\n" +
-                "\t\t\tEnter 7:Check Balance");
+                "\t\t\tEnter 7:Check Balance\n" +
+                "\t\t\tEnter 8:exit program");
         System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><>");
         options();
     }
@@ -122,9 +123,9 @@ public class BankApp {
                 System.out.println(amount + " " + "is transferred from" + senderAccountNumber + "to" + receiverAccountNumber);
 
 
-//                System.out.println(senderAccountNumber + "balance is remaining" + bank.checkBalance(pin, senderAccountNumber));
-//                System.out.println(receiverAccountNumber + "balance is now" + bank.checkBalance(pin, receiverAccountNumber));
-//
+                System.out.println(senderAccountNumber + "balance is remaining" + bank.checkBalance(pin, Integer.parseInt(senderAccountNumber)));
+                System.out.println(receiverAccountNumber + "balance is now" + bank.checkBalance(pin, Integer.parseInt(receiverAccountNumber)));
+
 
               }  catch (Exception e){
                 print(e.getMessage());
