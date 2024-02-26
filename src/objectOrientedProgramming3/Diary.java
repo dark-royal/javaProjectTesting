@@ -21,6 +21,10 @@ public class Diary {
         return userName;
     }
 
+    public String getPassword(){
+        return password;
+    }
+
 
     public boolean isLocked() {
         return isLocked;
