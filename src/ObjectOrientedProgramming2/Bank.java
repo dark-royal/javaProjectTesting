@@ -8,35 +8,25 @@ public class Bank {
 
     private String bankName;
 
-    private int accountNumber = 1000;
+    private int  accountNumber = 1 ;
 
-    private final List<Account> accounts;
+    private final List<Account> accounts = new ArrayList<>() ;
 
-    public Bank(String bankName, int accountNumber) {
+    public Bank(String bankName) {
         this.bankName = bankName;
-        this.accountNumber = accountNumber;
-        this.accounts = new ArrayList<>();
     }
-
-    public List<Account> getAccount() {
-        return accounts;
+    public Bank (){
+        this(null);
     }
-
-
     public Account registerCustomer(String firstName, String lastName, String pin) {
-        int accountNumber = generateAccount();
-        Account account = new Account(firstName + " " + lastName, accountNumber, pin);
-
+        Account account = new Account(firstName,lastName,pin);
+        account.setNumber(accountNumber);
         accounts.add(account);
-
+        accountNumber++;
         return account;
-
-
     }
 
-    private int generateAccount() {
-        return ++accountNumber;
-    }
+
 
     public int getNumberOfAccount() {
         return accounts.size();
@@ -59,10 +49,8 @@ public class Bank {
             if (account.getAccountNumber() == accountNumber) {
                 return account;
             }
-
         }
         throw new IllegalArgumentException("no  such account  is found ");
-
     }
 
     public void transfer(int amount, int receiverAccountNumber, int senderAccountNumber, String pin) {
@@ -80,6 +68,7 @@ public class Bank {
 
     public void removeAccount(int accountNumber, String pin) {
         Account account = findAccount(accountNumber);
-        accounts.remove(accountNumber);
+        account.validatePin(pin);
+        accounts.remove(account);
     }
 }

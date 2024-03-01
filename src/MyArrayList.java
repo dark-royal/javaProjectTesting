@@ -25,8 +25,10 @@ public class MyArrayList {
 
     }
 
-//    public void arrayListIsEmpty() {
-//        isEmpty = false;
+    public void arrayListIsEmpty() {
+        isEmpty = false;
+
+    }
 
 
 
@@ -36,25 +38,22 @@ public class MyArrayList {
 
 
 
-
-
-    public void add(){
+    public void add(String element){
 
         size++;
 
     }
 
-    public void remove() {
-        if(isEmpty()) throw  new IndexOutOfBoundsException("no element found in the list");
-        else{
-            size--;
-        }
+    public void remove(String element) {
+        if (isEmpty()) throw new IndexOutOfBoundsException("no element found in the list");
+        size--;
+    }
 
 
     }
 
 
-}
+
 
 
 

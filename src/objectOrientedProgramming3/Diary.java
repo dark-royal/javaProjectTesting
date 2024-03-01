@@ -43,7 +43,7 @@ public class Diary {
 
     public boolean validatePassword(String password) {
         if (!this.password.equals(password)) throw new InvalidPassWordException("invalid password,try again");
-        return false;
+        return  true;
     }
 
     public void createEntry(String title, String body){

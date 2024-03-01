@@ -21,37 +21,38 @@ public class MyArrayListTest {
     @Test
     public void addElementTheList_elementIsNotEmptyTest() {
         assertTrue(myArrayList.isEmpty());
-        myArrayList.add();
+        myArrayList.add("praise");
         assertEquals(1, myArrayList.getSize());
     }
 
     @Test
     public void addTwoElements_twoElementAreAddedToTheListTest(){
-        //myArrayList.add();
-        //assertFalse(myArrayList.isEmpty());
-        myArrayList.add();
-        myArrayList.add();
+
+        assertTrue(myArrayList.isEmpty());
+        myArrayList.add("praise");
+        myArrayList.add("marv");
         assertEquals(2, myArrayList.getSize());
 
     }
 
     @Test
     public void addOneElement_removeOneElementTest(){
-        myArrayList.add();
-        myArrayList.remove();
+        myArrayList.add("praise");
+        myArrayList.remove("praise");
         assertEquals(0,myArrayList.getSize());
     }
 
     @Test
     public void removeElementFromAnArrayList_throwAnException(){
         assertTrue(myArrayList.isEmpty());
-        assertThrows(IndexOutOfBoundsException.class,() ->myArrayList.remove());
+        myArrayList.add("praise");
+        assertThrows(IndexOutOfBoundsException.class,() ->myArrayList.remove("praise"));
 
     }
 
-//    public void addElement_elementIsAdded(){
-//        myArrayList.add("praise");
-//        myArrayList.add("marvelous");
-//    }
+    public void addElement_elementIsAdded(){
+        myArrayList.add("praise");
+        myArrayList.add("marvelous");
+    }
 }
 

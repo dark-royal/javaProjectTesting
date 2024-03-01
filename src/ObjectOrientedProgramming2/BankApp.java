@@ -4,7 +4,7 @@ import javax.swing.*;
 public class BankApp {
 
 
-    private static final Bank bank = new Bank("ZenithBank", 1000);
+    private static final Bank bank = new Bank();
 
 
     public static void main(String[] args) {
@@ -27,9 +27,9 @@ public class BankApp {
                 "\t\t\tEnter 2:Deposit Amount\n" +
                 "\t\t\tEnter 3:Withdraw Amount\n" +
                 "\t\t\tEnter 4:Transfer Amount\n" +
-                "\t\t\tEnter 6:Remove Account\n" +
-                "\t\t\tEnter 7:Check Balance\n" +
-                "\t\t\tEnter 8:exit program");
+                "\t\t\tEnter 5:Remove Account\n" +
+                "\t\t\tEnter 6:Check Balance\n" +
+                "\t\t\tEnter 7:exit program");
         System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><>");
         options();
     }
@@ -48,9 +48,9 @@ public class BankApp {
             case '4':
                 transferAmount();
 
-  //        case '6':
-    //            removeAccounts();
-            case '7':
+            case '5':
+                removeAccounts();
+            case '6':
                checkBalances();
             case '0':
                 exitProgram();
@@ -141,6 +141,7 @@ public class BankApp {
 
 
     public static void removeAccounts() {
+
     }
     public static void checkBalances() {
         String accountNumber = input("Enter account number to check balance from");

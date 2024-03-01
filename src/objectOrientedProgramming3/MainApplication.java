@@ -18,17 +18,18 @@ public class MainApplication {
     }
 
     public static void mainMenu() {
-        System.out.println("Welcome to Dark Royal Diary");
-        System.out.println("<><><><><><><><><><><><><><><><><>");
-        System.out.println("What will you like to do\n" +
-                "\t\t\tEnter 1: unlock diary\n" +
-                "\t\t\tEnter 2: lock diary\n" +
-                "\t\t\tEnter 3: create entry\n" +
-                "\t\t\tEnter 4: find entry by id\n"+
-                "\t\t\tEnter 5: update entry\n" +
-                "\t\t\tEnter 6: delete entry\n" +
-                "\t\t\tEnter 7: exit diary");
-        System.out.println("<><><><><><><><><><><><><><><><><>");
+        input("""
+                Welcome to Dark Royal Diary
+                <><><><><><><><><><><><><><><><><>
+                What will you like to do
+                \t\t\tEnter 1: lock diary
+                \t\t\tEnter 2: unlock diary
+                \t\t\tEnter 3: create entry
+                \t\t\tEnter 4: find entry by id
+                \t\t\tEnter 5: update entry
+                \t\t\tEnter 6: delete entry
+                \t\t\tEnter 7: exit diary
+                <><><><><><><><><><><><><><><><><>""");
         option();
 
     }
@@ -58,7 +59,7 @@ public class MainApplication {
     public static void unlockDiary(){
         String password = input("Enter password to unlock");
         diary.unlock(password);
-        System.out.println("<><><>Diary unlocked successfully");
+        print("<><><>Diary unlocked successfully");
         mainMenu();
     }
 
@@ -66,7 +67,8 @@ public class MainApplication {
         String title = input("Enter title ");
         String body = input("Enter body");
         diary.createEntry(title,body);
-        System.out.println("<><><<><><><>Entry created successfully");
+        print("<><><<><><><>Entry created successfully");
+        print(title + "\n" + body);
         mainMenu();
     }
 
@@ -75,7 +77,7 @@ public class MainApplication {
         try {
             String id = input("Enter id");
             diary.findEntryById(Integer.parseInt(id));
-            System.out.println(id + " is found");
+            print(id + " is found");
         }catch (Exception e){
             print(e.getMessage());
             print("id not found");
@@ -92,7 +94,7 @@ public class MainApplication {
             String newTitle = input("Enter new title");
             String newBody = input("Enter new body");
             diary.updateEntry(Integer.parseInt(id), newTitle, newBody);
-            System.out.println(id + "\n" + newTitle + "\n" + newBody);
+            print(id + "\n" + newTitle + "\n" + newBody);
 
 
         } catch (Exception e) {
@@ -109,7 +111,7 @@ public class MainApplication {
         try {
             String id = input("Enter id to delete");
             diary.deleteEntry(Integer.parseInt(id));
-            System.out.println(id + " is deleted successfully");
+            print(id + " is deleted successfully");
         } catch (Exception e) {
             print(e.getMessage());
             print("id not found");
@@ -125,7 +127,7 @@ public class MainApplication {
 
     public static void lockDiary(){
         diary.lockDiary();
-        System.out.println("diary locked successfully");
+        print("diary locked successfully");
         mainMenu();
     }
 

@@ -5,13 +5,17 @@ public class Account {
     private String name;
     private int balance = 0;
     private final String pin;
-    private final int number;
+    private int number;
 
 
     public Account(String name, int number, String pin){
         this.name = name;
         this.number = number;
         this.pin = pin;
+
+    }
+    public Account(String firstName,String lastName,String pin){
+           this(firstName+lastName,0,pin);
 
     }
 
@@ -56,6 +60,9 @@ public class Account {
 
     public int getAccountNumber() {
         return number;
+    }
+    public void setNumber(int number){
+        this.number = number;
     }
 }
 
