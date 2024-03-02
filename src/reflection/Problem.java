@@ -14,6 +14,11 @@ public class Problem {
     }
 
 
+    public void problemSolved(){
+        isSolved = true;
+    }
+
+
     public Problem(String name, Type type){
         this.name = name;
         this.type = type;

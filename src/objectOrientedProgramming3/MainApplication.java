@@ -18,7 +18,7 @@ public class MainApplication {
     }
 
     public static void mainMenu() {
-        input("""
+        System.out.println("""
                 Welcome to Dark Royal Diary
                 <><><><><><><><><><><><><><><><><>
                 What will you like to do
@@ -33,6 +33,7 @@ public class MainApplication {
         option();
 
     }
+
 
     public static void option() {
         String option = input("Enter option to choose from");
@@ -59,7 +60,7 @@ public class MainApplication {
     public static void unlockDiary(){
         String password = input("Enter password to unlock");
         diary.unlock(password);
-        print("<><><>Diary unlocked successfully");
+        System.out.println("<><><>Diary unlocked successfully");
         mainMenu();
     }
 
@@ -67,8 +68,8 @@ public class MainApplication {
         String title = input("Enter title ");
         String body = input("Enter body");
         diary.createEntry(title,body);
-        print("<><><<><><><>Entry created successfully");
-        print(title + "\n" + body);
+        System.out.println("<><><<><><><>Entry created successfully");
+        System.out.println(title + "\n" + body);
         mainMenu();
     }
 
@@ -77,7 +78,7 @@ public class MainApplication {
         try {
             String id = input("Enter id");
             diary.findEntryById(Integer.parseInt(id));
-            print(id + " is found");
+            System.out.println(id + " is found");
         }catch (Exception e){
             print(e.getMessage());
             print("id not found");
@@ -94,7 +95,7 @@ public class MainApplication {
             String newTitle = input("Enter new title");
             String newBody = input("Enter new body");
             diary.updateEntry(Integer.parseInt(id), newTitle, newBody);
-            print(id + "\n" + newTitle + "\n" + newBody);
+            System.out.println(id + "\n" + newTitle + "\n" + newBody);
 
 
         } catch (Exception e) {
@@ -111,7 +112,7 @@ public class MainApplication {
         try {
             String id = input("Enter id to delete");
             diary.deleteEntry(Integer.parseInt(id));
-            print(id + " is deleted successfully");
+            System.out.println(id + " is deleted successfully");
         } catch (Exception e) {
             print(e.getMessage());
             print("id not found");
@@ -123,11 +124,12 @@ public class MainApplication {
 
     public static void exitDiary(){
         System.exit(404);
+        System.out.println("Thanks for using  Dark Royal diary");
     }
 
     public static void lockDiary(){
         diary.lockDiary();
-        print("diary locked successfully");
+        System.out.println("diary locked successfully");
         mainMenu();
     }
 

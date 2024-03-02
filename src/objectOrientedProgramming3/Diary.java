@@ -41,17 +41,20 @@ public class Diary {
         isLocked = true;
     }
 
-    public boolean validatePassword(String password) {
+    public void validatePassword(String password) {
         if (!this.password.equals(password)) throw new InvalidPassWordException("invalid password,try again");
-        return  true;
     }
 
     public void createEntry(String title, String body){
-        int id = generateId();
-        Entry entry = new Entry(id, "title", "body");
-        entries.add(entry);
+        if(isLocked()){
+            System.out.println("diary is locked");
+        }
+        else {
+            int id = generateId();
+            Entry entry = new Entry(id, "title", "body");
+            entries.add(entry);
 
-
+        }
     }
 
     private int generateId() {
