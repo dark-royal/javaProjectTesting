@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LogisticsServicesTest {
 
@@ -22,6 +23,16 @@ public class LogisticsServicesTest {
     @Test
     public void test_that_a_rider_collection_rate_is_greater_or_equals_to_70_percent(){
         assertEquals(44500,LogisticsServices.services(79));
+
+    }
+    @Test
+    public void test_that_number_of_successful_delivery_cannot_be_negative(){
+        assertThrows(IllegalArgumentException.class,()->LogisticsServices.services(-1));
+    }
+
+    @Test
+    public void test_that_collection_rate_cannot_be_over_hundred(){
+        assertThrows(IllegalArgumentException.class,()->LogisticsServices.services(150));
 
     }
 }
