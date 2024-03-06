@@ -1,6 +1,6 @@
 package reflection;
 
-public enum GeoPoliticalZones {
+public enum GeopoliticalZone1 {
 
     NORTHWEST("Kebbi","Sokoto","Kastina","Zamfara","Kaduna","Kano"),
     NORTHEAST("Adamawa", "Yobe","Borno","Bauchi","Gombe","Taraba","Jigawa"),
@@ -17,7 +17,7 @@ public enum GeoPoliticalZones {
     private final String[] state;
 
 
-    GeoPoliticalZones(String...state) {
+    GeopoliticalZone1(String...state) {
         this.state = state;
     }
 

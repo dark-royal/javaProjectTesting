@@ -1,5 +1,5 @@
 package TicTacToePackage;
 
 public enum TacConstant {
-    X,O,EMPTY
+    X,O,EMPTY;
 }

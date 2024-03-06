@@ -18,7 +18,7 @@ public class MainApplication {
     }
 
     public static void mainMenu() {
-        System.out.println("""
+        System.out.print("""
                 Welcome to Dark Royal Diary
                 <><><><><><><><><><><><><><><><><>
                 What will you like to do

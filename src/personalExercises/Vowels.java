@@ -1,7 +1,7 @@
 package personalExercises;
 public class Vowels {
     public static void main(String[] args) {
-        String[] word = {"semicolon really chnages"};
+        String[] word = {"semicolon really changes"};
         String vowel = "a,e,i,o,u";
         String remainingLetter = "";
 

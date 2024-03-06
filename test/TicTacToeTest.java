@@ -69,7 +69,8 @@ public class TicTacToeTest {
 
     @Test
     public void testThatPlayerCannotPlayInTheSameIndexThatHaveBeenPlayed(){
-        ticTacToe.play(1,3);
-        assertThrows()
+        ticTacToe.play(1,2);
+        assertEquals(TacConstant.X,ticTacToe.checkTable()[0][1]);
+        assertThrows(IllegalArgumentException.class,()-> ticTacToe.play(1,2));
     }
 }
