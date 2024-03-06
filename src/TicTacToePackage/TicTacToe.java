@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class TicTacToe {
     private final TacConstant[][] table = new TacConstant[3][3];
-    private int numberOfPlayers = 2;
+    private  int numberOfPlayers = 2;
 
 
 
@@ -64,29 +64,32 @@ public class TicTacToe {
         }
         if (playerId == 2 && playerPosition == 4) {
             table[1][0] = TacConstant.O;
+        }
+        if(playerId == 2 && playerPosition == 5) {
+            table[1][1] = TacConstant.O;
+        }
+        if (playerId == 2 && playerPosition == 6) {
+            table[1][2] = TacConstant.O;
+        }
+        if (playerId == 2 && playerPosition == 7) {
+            table[2][0] = TacConstant.O;
+        }
 
-            if (playerId == 2 && playerPosition == 5) {
-                table[1][1] = TacConstant.O;
-            }
-            if (playerId == 2 && playerPosition == 6) {
-                table[1][2] = TacConstant.O;
-            }
-            if (playerId == 2 && playerPosition == 7) {
-                table[2][0] = TacConstant.O;
-            }
-            if (playerId == 2 && playerPosition == 8) {
-                table[2][1] = TacConstant.O;
-            }
-            if (playerId == 2 && playerPosition == 9) {
-                table[2][2] = TacConstant.O;
-            } else {
-                if (playerId > 2 && playerPosition > 9) {
-                    throw new InvalidPlayerAndInvalidPlayerPosition("players should be  2: and player POSITION SHOULD NOT BE MORE THAN NINE");
-                }
+        if (playerId == 2 && playerPosition == 7) {
+            table[2][1] = TacConstant.O;
+        }
 
+        if (playerId == 2 && playerPosition == 9) {
+            table[2][2] = TacConstant.O;
+        }
+        else {
+            if (playerId > 2 && playerPosition > 9) {
+                throw new InvalidPlayerAndInvalidPlayerPosition("players should be  2: and player POSITION SHOULD NOT BE MORE THAN NINE");
+            }
             }
         }
-    }
+
+
 
     public void validatePlay(int playerId, int playerPosition) {
         if (playerId > 3 && playerPosition > 9) {
