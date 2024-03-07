@@ -18,6 +18,9 @@ public class LogisticsServices {
         else if (numberOfSuccessfulDelivery >= 70){
             int amountPerParcel = 500;
             wagesForTheDay = numberOfSuccessfulDelivery * amountPerParcel + basePay;
+        } else if(numberOfSuccessfulDelivery == 0){
+            wagesForTheDay = 5000;
+
         }
         if (numberOfSuccessfulDelivery < 0 || numberOfSuccessfulDelivery > 100){
             throw new IllegalArgumentException("Invalid input");

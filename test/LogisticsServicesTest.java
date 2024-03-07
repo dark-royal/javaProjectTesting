@@ -35,4 +35,9 @@ public class LogisticsServicesTest {
         assertThrows(IllegalArgumentException.class,()->LogisticsServices.services(150));
 
     }
+
+    @Test
+    public void test_number_of_salary_is_zero_wages_is_5000(){
+        assertEquals(5000,LogisticsServices.services(0));
+    }
 }
