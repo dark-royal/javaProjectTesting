@@ -111,6 +111,8 @@ switch (Integer.parseInt(option)){
         }catch (Exception e){
             print(e.getMessage());
             print("diary not found");
+            String pq =  input(mainMenu());
+            option(pq);
         }
     }
 
@@ -160,8 +162,9 @@ switch (Integer.parseInt(option)){
         } catch (Exception e) {
             print(e.getMessage());
             print("invalid password, try again!!!!");
-        } finally {
-            mainMenu1();
+            String o = input(mainMenu1());
+            option(o);
+
         }
     }
 

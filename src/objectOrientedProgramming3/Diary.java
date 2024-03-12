@@ -99,7 +99,16 @@ public class Diary {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Diary{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", id=" + id +
+                ", isLocked=" + isLocked +
+                ", entries=" + entries +
+                '}';
+    }
 }
 
 
