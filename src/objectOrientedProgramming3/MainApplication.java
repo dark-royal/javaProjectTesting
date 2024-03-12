@@ -4,11 +4,15 @@ import javax.swing.*;
 
 public class MainApplication {
 
-    private static final Diary diary = new Diary("userName","password");
+    private  final Diary diary = new Diary("userName","password");
 
     public static void main(String[] args) {
-        mainMenu();
+        MainApplication mainApplication = new MainApplication();
+
+        mainApplication.mainMenu();
     }
+
+
     public static String input(String prompt){
         return JOptionPane.showInputDialog(prompt);
     }
@@ -17,7 +21,7 @@ public class MainApplication {
         JOptionPane.showMessageDialog(null,"output" );
     }
 
-    public static void mainMenu() {
+    public  void mainMenu() {
         System.out.print("""
                 Welcome to Dark Royal Diary
                 <><><><><><><><><><><><><><><><><>
@@ -35,7 +39,7 @@ public class MainApplication {
     }
 
 
-    public static void option() {
+    public  void option() {
         String option = input("Enter option to choose from");
         switch (option.charAt(0)){
             case '1'-> lockDiary();
@@ -57,14 +61,14 @@ public class MainApplication {
 
     }
 
-    public static void unlockDiary(){
+    public  void unlockDiary(){
         String password = input("Enter password to unlock");
         diary.unlock(password);
         System.out.println("<><><>Diary unlocked successfully");
         mainMenu();
     }
 
-    public static  void createDiary(){
+    public   void createDiary(){
         String title = input("Enter title ");
         String body = input("Enter body");
         diary.createEntry(title,body);
@@ -73,7 +77,7 @@ public class MainApplication {
         mainMenu();
     }
 
-    public static void findEntryById(){
+    public  void findEntryById(){
 
         try {
             String id = input("Enter id");
@@ -89,7 +93,7 @@ public class MainApplication {
         }
     }
 
-    public static  void updateEntry() {
+    public   void updateEntry() {
         try {
             String id = input("Enter the id");
             String newTitle = input("Enter new title");
@@ -108,7 +112,7 @@ public class MainApplication {
 
 
 
-    public static void deleteEntry() {
+    public  void deleteEntry() {
         try {
             String id = input("Enter id to delete");
             diary.deleteEntry(Integer.parseInt(id));
@@ -122,12 +126,12 @@ public class MainApplication {
         }
     }
 
-    public static void exitDiary(){
+    public  void exitDiary(){
         System.exit(404);
         System.out.println("Thanks for using  Dark Royal diary");
     }
 
-    public static void lockDiary(){
+    public  void lockDiary(){
         diary.lockDiary();
         System.out.println("diary locked successfully");
         mainMenu();

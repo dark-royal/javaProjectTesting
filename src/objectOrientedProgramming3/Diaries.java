@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Diaries {
 
-    private List<Diary> diaries = new ArrayList<>();
+    private final List<Diary> diaries = new ArrayList<>();
 
 
     public void addDiary(String userName, String password) {
@@ -22,7 +22,9 @@ public class Diaries {
     }
 
     public Diary findByUserName(String userName) {
-        for (Diary diary : diaries) if (diary.getUserName().equals(userName)) return diary;
+        for (Diary diary : diaries) if (diary.getUserName().equals(userName)) {
+            return diary;
+        }
         throw new NoSuchDiaryExistException("Diary not found");
 
     }

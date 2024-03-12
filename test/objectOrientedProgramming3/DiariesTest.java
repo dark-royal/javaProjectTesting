@@ -24,13 +24,13 @@ public class DiariesTest {
     }
 
     @Test
-    public void findUserNameByUserName(){
+    public void findDiaryByUserName(){
         diaries.addDiary("user name","password");
         Diary foundDiary = diaries.findByUserName("user name");
         assertEquals("user name",foundDiary.getUserName());
     }
     @Test
-    public void findUserNameByIncorrectUserName_throwInvalidUserName(){
+    public void findDiaryByIncorrectUserName_throwInvalidUserName(){
         diaries.addDiary("user name","password");
         assertThrows(NoSuchDiaryExistException.class,()-> diaries.findByUserName("praise"));
 
