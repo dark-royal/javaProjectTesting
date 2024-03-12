@@ -11,7 +11,6 @@ public class MainApplication {
     public static void main(String[] args) {
 
         MainApplication mainApplication = new MainApplication();
-        mainApplication.initializeDiary();
 
         mainApplication.mainMenu();
     }
@@ -27,16 +26,15 @@ public class MainApplication {
 
     public  void mainMenu() {
         String returnValue = input(String.format("""
-                Welcome to %s Diary
+                Welcome to  Diary
                 <><><><><><><><><><><><><><><><><>
                 What will you like to do
                      Enter 1: add diary
                     Enter 2: find diary by username
                     Enter 3: delete diary
                     Enter 4: exit diary
-                    Enter 5: entry option
                   
-                <><><><><><><><><><><><><><><><><>""", diary.getUserName()));
+                <><><><><><><><><><><><><><><><><>"""));
         option(returnValue);
     }
     public String mainMenu1(){
@@ -48,7 +46,7 @@ String i ="""
                     Enter 5: update entry
                     Enter 6: delete entry
                     Enter 7: exit diary
-                    
+                    Enter 8: prev menu
                 """;
 
         return i;
@@ -68,39 +66,15 @@ switch (Integer.parseInt(option)){
         String pq =  input(mainMenu1());
         optionMainMenu(pq);
         break;
-
+    case 3:
+        deleteDiary();
+        break;
+    case 4:
+        System.exit(404);
 
 }
 
 
-    }
-
-    private void findDiaryByUsername() {
-        try {
-            String username = input("Enter your diary username");
-            diaries.findByUserName(username);
-            print("diary found successfully");
-        } catch (Exception e) {
-            print(e.getMessage());
-            print("diary not found");
-        } finally {
-            mainMenu1();
-        }
-    }
-
-    private void addDiary() {
-        try {
-            String username = input("Enter your username");
-            String password = input("Enter password");
-            diaries.addDiary(username, password);
-            print("diary is added successfully");
-
-        } catch (Exception e) {
-            print(e.getMessage());
-
-        } finally {
-            mainMenu1();
-        }
     }
 
     private void optionMainMenu(String option) {
@@ -117,23 +91,82 @@ switch (Integer.parseInt(option)){
 
             case 6-> deleteEntry();
 
-            case 7-> exitDiary();
+            case 7->
+                meod(option);
+
         }
     }
 
+    private void meod(String option) {
+        mainMenu();
+        option(option);
+    }
+
+    private void deleteDiary() {
+        try {
+            String username = input("Enter your diary username");
+            String password = input("Enter your diary password");
+            diaries.delete(username, password);
+            print("diary deleted successfully");
+
+        }catch (Exception e){
+            print(e.getMessage());
+            print("diary not found");
+        }
+    }
+
+    private void findDiaryByUsername() {
+        try {
+            String username = input("Enter your diary username");
+//            diaries.findByUserName(username);
+             diary = diaries.findByUserName(username);
+            print("diary found successfully");
+
+        } catch (Exception e) {
+            print(e.getMessage());
+            print("diary not found");
+        } finally {
+            mainMenu1();
+        }
+    }
+
+    private void addDiary() {
+        try {
+            String username = input("Enter your username");
+            String password = input("Enter password");
+            diaries.addDiary(username, password);
+
+            diary = diaries.addDiary(username, password);
+//            print("diary is added successfully");
+
+        } catch (Exception e) {
+            print(e.getMessage());
+
+        } finally {
+            mainMenu1();
+        }
+    }
+
+
+
     public  void unlockDiary(){
-        String password = input("Enter password to unlock");
-        diary.unlock(password);
-        print("<><><>Diary unlocked successfully");
-        mainMenu1();
+        try {
+            String password = input("Enter password to unlock");
+            diary.unlock(password);
+            print("<><><>Diary unlocked successfully");
+            mainMenu1();
+        }catch (Exception e){
+            print(e.getMessage());
+            print("invalid password, try again!!!!");
+        }
     }
     public void initializeDiary(){
         String username = input("Enter your preferred username");
         String password = input("Enter your preferred password");
-        diary = new Diary(username, password);
+//        diary = new Diary(username, password);
     }
 
-    public   void createDiary(){
+    public void createDiary(){
         try {
             String title = input("Enter title ");
             String body = input("Enter body");
@@ -204,6 +237,7 @@ switch (Integer.parseInt(option)){
     public  void exitDiary(){
         System.exit(404);
         print("Thanks for using  Dark Royal diary");
+        mainMenu1();
     }
 
     public  void lockDiary(){

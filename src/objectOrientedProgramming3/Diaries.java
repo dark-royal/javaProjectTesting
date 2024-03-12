@@ -8,9 +8,10 @@ public class Diaries {
     private final List<Diary> diaries = new ArrayList<>();
 
 
-    public void addDiary(String userName, String password) {
+    public Diary addDiary(String userName, String password) {
         Diary diary = new Diary(userName, password);
         diaries.add(diary);
+        return diary;
     }
 
     public int getNumberOfDiaries() {
@@ -26,6 +27,7 @@ public class Diaries {
             return diary;
         }
         throw new NoSuchDiaryExistException("Diary not found");
+
 
     }
 
