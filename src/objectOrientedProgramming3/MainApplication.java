@@ -1,7 +1,6 @@
 package objectOrientedProgramming3;
 
 import javax.swing.*;
-
 public class MainApplication {
 
     private  Diary diary;
@@ -47,7 +46,6 @@ String i ="""
                     Enter 5: update entry
                     Enter 6: delete entry
                     Enter 7: exit diary
-                    Enter 8: prev menu
                 """;
 
         return i;
@@ -55,6 +53,7 @@ String i ="""
 
 
     public  void option(String option) {
+        try {
 switch (Integer.parseInt(option)){
     case 1:
         addDiary();
@@ -70,8 +69,13 @@ switch (Integer.parseInt(option)){
         break;
     case 4:
         System.exit(404);
-
+    default:
+        input(mainMenu());
 }
+
+}catch (Exception f){
+            input(mainMenu());
+        }
 
 
     }
@@ -92,6 +96,7 @@ switch (Integer.parseInt(option)){
 
             case 7->
                 meod(option);
+            default -> optionMainMenu(option);
 
         }
     }

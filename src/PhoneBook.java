@@ -1,16 +1,11 @@
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
+import java.util.*;
 
 
 public class PhoneBook {
 
     public static Map<String, String> phoneBook = new HashMap<>();
-    private static final ArrayList<String> address = new ArrayList<>();
 
     public static final Scanner input = new Scanner(System.in);
 
