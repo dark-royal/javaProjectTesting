@@ -48,6 +48,7 @@ public class Diary {
     }
 
     public void createEntry(String title, String body){
+
         if(isLocked()){
             System.out.println("diary is locked");
         }
@@ -59,7 +60,7 @@ public class Diary {
         }
     }
 
-    private int generateId() {
+    public int generateId() {
         id++;
         return id;
     }

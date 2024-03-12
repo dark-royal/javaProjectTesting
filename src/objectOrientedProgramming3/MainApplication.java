@@ -5,17 +5,19 @@ import javax.swing.*;
 public class MainApplication {
 
     private  Diary diary;
-    String username = input("Enter username");
-    String password = input("Enter password");
-
-    public void initializer(){
-        diary = new Diary(username,password);
-    }
+//    String username = input("Enter username");
+//    String password = input("Enter password");
+//
+//    public void initializer(){
+//        diary = new Diary(username,password);
+//    }
 
 
 
     public static void main(String[] args) {
+
         MainApplication mainApplication = new MainApplication();
+        mainApplication.initializeDiary();
 
         mainApplication.mainMenu();
     }
@@ -30,8 +32,8 @@ public class MainApplication {
     }
 
     public  void mainMenu() {
-        print("""
-                Welcome to Dark Royal Diary
+        String returnValue = input(String.format("""
+                Welcome to %s Diary
                 <><><><><><><><><><><><><><><><><>
                 What will you like to do
                 \t\t\tEnter 1: lock diary
@@ -41,14 +43,13 @@ public class MainApplication {
                 \t\t\tEnter 5: update entry
                 \t\t\tEnter 6: delete entry
                 \t\t\tEnter 7: exit diary
-                <><><><><><><><><><><><><><><><><>""");
-        option();
-
+                <><><><><><><><><><><><><><><><><>""",diary.getUserName()));
+        option(returnValue);
     }
 
 
-    public  void option() {
-        String option = input("Enter option to choose from");
+    public  void option(String option) {
+
         switch (option.charAt(0)){
             case '1'-> lockDiary();
 
@@ -75,11 +76,11 @@ public class MainApplication {
         print("<><><>Diary unlocked successfully");
         mainMenu();
     }
-//    public void initializeDiary(){
-//        String username = input("Enter your preferred username");
-//        String password = input("Enter your preferred password");
-//        diary = new Diary(username, password);
-//    }
+    public void initializeDiary(){
+        String username = input("Enter your preferred username");
+        String password = input("Enter your preferred password");
+        diary = new Diary(username, password);
+    }
 
     public   void createDiary(){
         String title = input("Enter title ");
@@ -87,6 +88,7 @@ public class MainApplication {
         diary.createEntry(title,body);
         print("<><><<><><><>Entry created successfully");
         print(title + "\n" + body);
+        print("your entry id is" + diary.generateId());
         mainMenu();
     }
 
@@ -95,7 +97,7 @@ public class MainApplication {
         try {
             String id = input("Enter id");
             diary.findEntryById(Integer.parseInt(id));
-            System.out.println(id + " is found");
+            print(id + " is found");
         }catch (Exception e){
             print(e.getMessage());
             print("id not found");

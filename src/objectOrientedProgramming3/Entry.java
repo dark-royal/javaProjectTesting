@@ -59,6 +59,11 @@ public class Entry {
     }
 
     public String toString(){
-        return id + " " + title + " " + body + " " + dateCreated + " " + time;
+        return String.format("""
+                                Entry ID : %s
+                                title: %s  
+                                body : %s 
+                                dateCreated: %s 
+                                time: %s""",id,title,body,dateCreated,time);
     }
 }
