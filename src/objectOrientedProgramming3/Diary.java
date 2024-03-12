@@ -42,7 +42,8 @@ public class Diary {
     }
 
     public void validatePassword(String password) {
-        if (!(this.password.equals(password)))
+        boolean condition = this.password.equals(password);
+        if (!(condition))
             throw new InvalidPassWordException("invalid password,try again");
     }
 

@@ -4,7 +4,15 @@ import javax.swing.*;
 
 public class MainApplication {
 
-    private  final Diary diary = new Diary("userName","password");
+    private  Diary diary;
+    String username = input("Enter username");
+    String password = input("Enter password");
+
+    public void initializer(){
+        diary = new Diary(username,password);
+    }
+
+
 
     public static void main(String[] args) {
         MainApplication mainApplication = new MainApplication();
@@ -14,15 +22,15 @@ public class MainApplication {
 
 
     public static String input(String prompt){
-        return JOptionPane.showInputDialog(prompt);
+        return JOptionPane.showInputDialog(null,prompt);
     }
 
     public static void print(String output){
-        JOptionPane.showMessageDialog(null,"output" );
+        JOptionPane.showMessageDialog(null,output );
     }
 
     public  void mainMenu() {
-        System.out.print("""
+        print("""
                 Welcome to Dark Royal Diary
                 <><><><><><><><><><><><><><><><><>
                 What will you like to do
@@ -64,16 +72,21 @@ public class MainApplication {
     public  void unlockDiary(){
         String password = input("Enter password to unlock");
         diary.unlock(password);
-        System.out.println("<><><>Diary unlocked successfully");
+        print("<><><>Diary unlocked successfully");
         mainMenu();
     }
+//    public void initializeDiary(){
+//        String username = input("Enter your preferred username");
+//        String password = input("Enter your preferred password");
+//        diary = new Diary(username, password);
+//    }
 
     public   void createDiary(){
         String title = input("Enter title ");
         String body = input("Enter body");
         diary.createEntry(title,body);
-        System.out.println("<><><<><><><>Entry created successfully");
-        System.out.println(title + "\n" + body);
+        print("<><><<><><><>Entry created successfully");
+        print(title + "\n" + body);
         mainMenu();
     }
 
@@ -99,7 +112,7 @@ public class MainApplication {
             String newTitle = input("Enter new title");
             String newBody = input("Enter new body");
             diary.updateEntry(Integer.parseInt(id), newTitle, newBody);
-            System.out.println(id + "\n" + newTitle + "\n" + newBody);
+            print(id + "\n" + newTitle + "\n" + newBody);
 
 
         } catch (Exception e) {
@@ -116,7 +129,7 @@ public class MainApplication {
         try {
             String id = input("Enter id to delete");
             diary.deleteEntry(Integer.parseInt(id));
-            System.out.println(id + " is deleted successfully");
+            print(id + " is deleted successfully");
         } catch (Exception e) {
             print(e.getMessage());
             print("id not found");
@@ -128,12 +141,12 @@ public class MainApplication {
 
     public  void exitDiary(){
         System.exit(404);
-        System.out.println("Thanks for using  Dark Royal diary");
+        print("Thanks for using  Dark Royal diary");
     }
 
     public  void lockDiary(){
         diary.lockDiary();
-        System.out.println("diary locked successfully");
+        print("diary locked successfully");
         mainMenu();
     }
 
