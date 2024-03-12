@@ -5,6 +5,8 @@ import javax.swing.*;
 public class MainApplication {
 
     private  Diary diary;
+    private static final Diaries diaries = new Diaries();
+
 
     public static void main(String[] args) {
 
@@ -28,45 +30,102 @@ public class MainApplication {
                 Welcome to %s Diary
                 <><><><><><><><><><><><><><><><><>
                 What will you like to do
-                \t\t\tEnter 1: lock diary
-                \t\t\tEnter 2: unlock diary
-                \t\t\tEnter 3: create entry
-                \t\t\tEnter 4: find entry by id
-                \t\t\tEnter 5: update entry
-                \t\t\tEnter 6: delete entry
-                \t\t\tEnter 7: exit diary
-                <><><><><><><><><><><><><><><><><>""",diary.getUserName()));
+                     Enter 1: add diary
+                    Enter 2: find diary by username
+                    Enter 3: delete diary
+                    Enter 4: exit diary
+                    Enter 5: entry option
+                  
+                <><><><><><><><><><><><><><><><><>""", diary.getUserName()));
         option(returnValue);
+    }
+    public String mainMenu1(){
+String i ="""
+                    Enter 1: lock diary
+                    Enter 2: unlock diary
+                    Enter 3: create entry
+                    Enter 4: find entry by id
+                    Enter 5: update entry
+                    Enter 6: delete entry
+                    Enter 7: exit diary
+                    
+                """;
+
+        return i;
     }
 
 
     public  void option(String option) {
+switch (Integer.parseInt(option)){
+    case 1:
+        addDiary();
 
-        switch (option.charAt(0)){
-            case '1'-> lockDiary();
+       String p =  input(mainMenu1());
+       optionMainMenu(p);
+        break;
+    case 2:
+        findDiaryByUsername();
+        String pq =  input(mainMenu1());
+        optionMainMenu(pq);
+        break;
 
-            case '2'-> unlockDiary();
 
-            case '3'-> createDiary();
+}
 
-            case '4'-> findEntryById();
 
-            case '5'-> updateEntry();
+    }
 
-            case '6'-> deleteEntry();
-
-            case '7'-> exitDiary();
+    private void findDiaryByUsername() {
+        try {
+            String username = input("Enter your diary username");
+            diaries.findByUserName(username);
+            print("diary found successfully");
+        } catch (Exception e) {
+            print(e.getMessage());
+            print("diary not found");
+        } finally {
+            mainMenu1();
         }
+    }
 
+    private void addDiary() {
+        try {
+            String username = input("Enter your username");
+            String password = input("Enter password");
+            diaries.addDiary(username, password);
+            print("diary is added successfully");
 
+        } catch (Exception e) {
+            print(e.getMessage());
 
+        } finally {
+            mainMenu1();
+        }
+    }
+
+    private void optionMainMenu(String option) {
+        switch (Integer.parseInt(option)){
+            case 1-> lockDiary();
+
+            case 2-> unlockDiary();
+
+            case 3-> createDiary();
+
+            case 4-> findEntryById();
+
+            case 5-> updateEntry();
+
+            case 6-> deleteEntry();
+
+            case 7-> exitDiary();
+        }
     }
 
     public  void unlockDiary(){
         String password = input("Enter password to unlock");
         diary.unlock(password);
         print("<><><>Diary unlocked successfully");
-        mainMenu();
+        mainMenu1();
     }
     public void initializeDiary(){
         String username = input("Enter your preferred username");
@@ -88,7 +147,7 @@ public class MainApplication {
             print("unlock your diary");
          }
         finally {
-            mainMenu();
+            mainMenu1();
         }
 
     }
@@ -105,7 +164,7 @@ public class MainApplication {
         }
 
         finally {
-            mainMenu();
+            mainMenu1();
         }
     }
 
@@ -122,7 +181,7 @@ public class MainApplication {
             print(e.getMessage());
             print("id not found");
         } finally {
-            mainMenu();
+            mainMenu1();
         }
     }
 
@@ -138,7 +197,7 @@ public class MainApplication {
             print("id not found");
         }
         finally {
-            mainMenu();
+            mainMenu1();
         }
     }
 
@@ -150,7 +209,7 @@ public class MainApplication {
     public  void lockDiary(){
         diary.lockDiary();
         print("diary locked successfully");
-        mainMenu();
+        mainMenu1();
     }
 
 
