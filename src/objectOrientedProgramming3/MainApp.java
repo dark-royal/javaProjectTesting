@@ -16,7 +16,3 @@ public class MainApp {
         JOptionPane.showMessageDialog(null,"output" );
     }
 
-//    public static  void display(;
-//    }
-
-}

@@ -48,13 +48,14 @@ public class Diary {
     }
 
     public void createEntry(String title, String body){
-
         if(isLocked()){
-            System.out.println("diary is locked");
+            throw  new DiaryIsLocked("unlock your  diary");
         }
         else {
             int id = generateId();
             Entry entry = new Entry(id, "title", "body");
+            entry.getDateCreated();
+            entry.getTime();
             entries.add(entry);
 
         }

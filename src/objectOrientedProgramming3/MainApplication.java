@@ -5,14 +5,6 @@ import javax.swing.*;
 public class MainApplication {
 
     private  Diary diary;
-//    String username = input("Enter username");
-//    String password = input("Enter password");
-//
-//    public void initializer(){
-//        diary = new Diary(username,password);
-//    }
-
-
 
     public static void main(String[] args) {
 
@@ -83,13 +75,22 @@ public class MainApplication {
     }
 
     public   void createDiary(){
-        String title = input("Enter title ");
-        String body = input("Enter body");
-        diary.createEntry(title,body);
-        print("<><><<><><><>Entry created successfully");
-        print(title + "\n" + body);
-        print("your entry id is" + diary.generateId());
-        mainMenu();
+        try {
+            String title = input("Enter title ");
+            String body = input("Enter body");
+            diary.createEntry(title, body);
+            print("<><><<><><><>Entry created successfully");
+            print(title + "\n" + body);
+            print("your entry id is" + diary.generateId());
+        }
+         catch(Exception e){
+            print(e.getMessage());
+            print("unlock your diary");
+         }
+        finally {
+            mainMenu();
+        }
+
     }
 
     public  void findEntryById(){
