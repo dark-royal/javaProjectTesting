@@ -91,7 +91,15 @@ public class TurtleTest {
 
 
     }
+    @Test
+    public void testTurtleCanTurnRightFromSouth_turnedToWest(){
+        Turtle turtle = new Turtle();
+        assertSame(Direction.EAST, turtle.checkCurrentDirection());
+        turtle.turnRight();
+        turtle.turnRight();
+        assertSame(Direction.SOUTH, turtle.checkCurrentDirection());
 
 
 
-}
+
+    }

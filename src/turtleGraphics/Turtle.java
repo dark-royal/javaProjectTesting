@@ -1,9 +1,11 @@
 package turtleGraphics;
 
+import static turtleGraphics.Direction.*;
+
 public class Turtle {
 
     private  boolean isPenup = true;
-    private final Direction currentDirection = Direction.EAST;
+    private  Direction currentDirection = Direction.EAST;
     public boolean isPenUp() {
         return isPenup;
     }
@@ -21,9 +23,20 @@ public class Turtle {
     }
 
     public void turnLeft() {
-        currentDirection.moveLeft();
+        switch (currentDirection){
+            case EAST -> currentDirection = Direction.NORTH;
+            case NORTH-> currentDirection = WEST;
+            case SOUTH -> currentDirection = Direction.EAST;
+            case WEST -> currentDirection = Direction.SOUTH;
+
+        }
     }
     public void turnRight(){
-        currentDirection.moveRight();
+        switch (currentDirection){
+        case EAST -> currentDirection = Direction.SOUTH;
+        case NORTH-> currentDirection = EAST;
+        case SOUTH -> currentDirection = Direction.WEST;
+        case WEST -> currentDirection = Direction.NORTH;
+
     }
-}
+}}
