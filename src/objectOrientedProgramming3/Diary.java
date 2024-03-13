@@ -72,9 +72,14 @@ public class Diary {
     }
 
     public Entry findEntryById(int id) {
-        for (Entry entry : entries) {
-            if (entry.getId() == id) {
-                return entry;
+        if(isLocked()){
+            throw  new DiaryIsLocked("unlock your  diary");
+        }
+        else {
+            for (Entry entry : entries) {
+                if (entry.getId() == id) {
+                    return entry;
+                }
             }
         }
             throw new InvalidEntryIdException("entry not found");
@@ -105,7 +110,7 @@ public class Diary {
                 "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", id=" + id +
-                ", isLocked=" + isLocked +
+                 ", isLocked=" + isLocked +
                 ", entries=" + entries +
                 '}';
     }

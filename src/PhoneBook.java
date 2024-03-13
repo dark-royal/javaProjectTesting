@@ -70,12 +70,6 @@ public class PhoneBook {
 
     }
 
-    public static  void collectAddress() {
-
-        System.out.println("Enter the address");
-        String address = input.next();
-        System.out.println("LOADING.......SAVED SUCCESSFULLY");
-    }
 
     public static void searchForContacts() {
         System.out.println("Enter name to search");

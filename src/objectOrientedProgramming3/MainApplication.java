@@ -38,7 +38,7 @@ public class MainApplication {
         return returnValue;
     }
     public String mainMenu1(){
-String i ="""
+String option ="""
                     Enter 1: lock diary
                     Enter 2: unlock diary
                     Enter 3: create entry
@@ -48,7 +48,7 @@ String i ="""
                     Enter 7: exit diary
                 """;
 
-        return i;
+        return option;
     }
 
 
@@ -58,8 +58,8 @@ switch (Integer.parseInt(option)){
     case 1:
         addDiary();
 
-       String p =  input(mainMenu1());
-       optionMainMenu(p);
+       String choose =  input(mainMenu1());
+       optionMainMenu(choose);
         break;
     case 2:
         findDiaryByUsername();
@@ -95,13 +95,13 @@ switch (Integer.parseInt(option)){
             case 6-> deleteEntry();
 
             case 7->
-                meod(option);
+                method(option);
             default -> optionMainMenu(option);
 
         }
     }
 
-    private void meod(String option) {
+    private void method(String option) {
         mainMenu();
         option(option);
     }
@@ -116,8 +116,8 @@ switch (Integer.parseInt(option)){
         }catch (Exception e){
             print(e.getMessage());
             print("diary not found");
-            String pq =  input(mainMenu());
-            option(pq);
+            String option =  input(mainMenu());
+            option(option);
         }
     }
 
@@ -126,33 +126,40 @@ switch (Integer.parseInt(option)){
             String username = input("Enter your diary username");
              diary = diaries.findByUserName(username);
              print(diary.toString());
-             String pq =  input(mainMenu1());
-             optionMainMenu(pq);
+             String option =  input(mainMenu1());
+             optionMainMenu(option);
 
         } catch (Exception e) {
             print(e.getMessage());
-            String pq =  input(mainMenu());
-            option(pq);
+            String option =  input(mainMenu());
+            option(option);
         }
     }
 
     private void addDiary() {
         try {
             String username = input("Enter your username");
+
+            while (username.isEmpty()) {
+                username = input("Enter your username");
+            }
             String password = input("Enter password");
-            diaries.addDiary(username, password);
+                while (password.) {
+                    password = input("Enter password");
+                }
 
             diary = diaries.addDiary(username, password);
-//            print("diary is added successfully");
+            print("diary is added successfully");
 
         } catch (Exception e) {
             print(e.getMessage());
-            String pq =  input(mainMenu());
-            option(pq);
+            String option =  input(mainMenu());
+            option(option);
 
-        } finally {
-            mainMenu1();
         }
+//        finally {
+//            mainMenu1();
+//        }
     }
 
 
@@ -162,13 +169,13 @@ switch (Integer.parseInt(option)){
             String password = input("Enter password to unlock");
             diary.unlock(password);
             print("<><><>Diary unlocked successfully");
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            String option = input(mainMenu1());
+            optionMainMenu(option);
         } catch (Exception e) {
             print(e.getMessage());
             print("invalid password, try again!!!!");
-            String o = input(mainMenu1());
-            option(o);
+            String option = input(mainMenu1());
+            option(option);
 
         }
     }
@@ -181,17 +188,17 @@ switch (Integer.parseInt(option)){
             print("<><><<><><><>Entry created successfully");
             print(title + "\n" + body);
             print("your entry id is" + diary.generateId());
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            String option = input(mainMenu1());
+            optionMainMenu(option);
         }
-         catch(Exception e){
-            print(e.getMessage());
-            print("unlock your diary");
+         catch(Exception e) {
+             print(e.getMessage());
+             print("unlock your diary");
+             String option = input(mainMenu1());
+             option(option);
+
 
          }
-        finally {
-            mainMenu1();
-        }
 
     }
 
@@ -201,12 +208,12 @@ switch (Integer.parseInt(option)){
             String id = input("Enter id");
             diary.findEntryById(Integer.parseInt(id));
             print(id + " is found");
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            String option = input(mainMenu1());
+            optionMainMenu(option);
         }catch (Exception e){
-            print(e.getMessage());
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            print("invalid input "+e.getMessage());
+            String option = input(mainMenu1());
+            optionMainMenu(option);
         }
 
         finally {
@@ -221,13 +228,13 @@ switch (Integer.parseInt(option)){
             String newBody = input("Enter new body");
             diary.updateEntry(Integer.parseInt(id), newTitle, newBody);
             print(id + "\n" + newTitle + "\n" + newBody);
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            String option = input(mainMenu1());
+            optionMainMenu(option);
 
         } catch (Exception e) {
             print(e.getMessage());
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            String option = input(mainMenu1());
+            optionMainMenu(option);
         } finally {
             mainMenu1();
         }
@@ -240,12 +247,12 @@ switch (Integer.parseInt(option)){
             String id = input("Enter id to delete");
             diary.deleteEntry(Integer.parseInt(id));
             print(id + " is deleted successfully");
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            String option = input(mainMenu1());
+            optionMainMenu(option);
         } catch (Exception e) {
             print(e.getMessage());
-            String o = input(mainMenu1());
-            optionMainMenu(o);
+            String option = input(mainMenu1());
+            optionMainMenu(option);
         }
         finally {
             mainMenu1();
@@ -261,8 +268,8 @@ switch (Integer.parseInt(option)){
     public  void lockDiary(){
         diary.lockDiary();
         print("diary locked successfully");
-        String o = input(mainMenu1());
-        optionMainMenu(o);
+        String option = input(mainMenu1());
+        optionMainMenu(option);
     }
 
 
