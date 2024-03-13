@@ -140,11 +140,11 @@ switch (Integer.parseInt(option)){
         try {
             String username = input("Enter your username");
 
-            while (username.isEmpty()) {
+            while (username.trim().isEmpty()) {
                 username = input("Enter your username");
             }
             String password = input("Enter password");
-                while (password.) {
+                while (password.trim().isEmpty()) {
                     password = input("Enter password");
                 }
 
