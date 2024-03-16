@@ -3,7 +3,7 @@ import java.util.Stack;
 public class MyStack {
 
     private  int size;
-    private int numberOfElement = 0;
+    private int numberOfElement;
     private int[] elements;
 
 
@@ -36,6 +36,10 @@ public class MyStack {
         if(isEmpty()) throw new IllegalArgumentException("Error");
         return elements[numberOfElement - 1];
 
+    }
+
+    public int getNumberOfElement(){
+        return numberOfElement;
     }
 
 

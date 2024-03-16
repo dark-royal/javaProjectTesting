@@ -1,24 +1,32 @@
 public class AirConditioner {
 
     private boolean airConditionerIsOn;
+    private int temperature = 16;
 
     public boolean getAirConditionIsOn(){
         return airConditionerIsOn;
     }
-    public boolean acIsOff() {
+    public void acIsOff() {
         airConditionerIsOn = false;
-        return airConditionerIsOn;
+
     }
 
-    public boolean isOn(){
+    public void isOn(){
         airConditionerIsOn = true;
-        return airConditionerIsOn;
+    }
+
+    public void increaseTemperature(){
+        if(getAirConditionIsOn() && temperature >= 16 && temperature < 30);
+        temperature++;
     }
 
 
+    public int getAcTemperature() {
+        return temperature;
+    }
 
-
-
-
-
+    public void decreaseTemperature() {
+        if(getAirConditionIsOn() && temperature >16  && temperature <= 30);
+        temperature--;
+    }
 }

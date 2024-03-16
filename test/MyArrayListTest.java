@@ -22,7 +22,7 @@ public class MyArrayListTest {
     public void addElementTheList_elementIsNotEmptyTest() {
         assertTrue(myArrayList.isEmpty());
         myArrayList.add("praise");
-        assertEquals(1, myArrayList.getSize());
+        assertEquals(1, myArrayList.getNumberOfElement());
     }
 
     @Test
@@ -31,28 +31,31 @@ public class MyArrayListTest {
         assertTrue(myArrayList.isEmpty());
         myArrayList.add("praise");
         myArrayList.add("marv");
-        assertEquals(2, myArrayList.getSize());
+        assertEquals(2, myArrayList.getNumberOfElement());
 
     }
 
     @Test
     public void addOneElement_removeOneElementTest(){
         myArrayList.add("praise");
+        myArrayList.add("bimbim");
         myArrayList.remove("praise");
-        assertEquals(0,myArrayList.getSize());
+        assertEquals(1,myArrayList.getNumberOfElement());
     }
 
     @Test
     public void removeElementFromAnArrayList_throwAnException(){
         assertTrue(myArrayList.isEmpty());
-        myArrayList.add("praise");
         assertThrows(IndexOutOfBoundsException.class,() ->myArrayList.remove("praise"));
 
     }
-
-    public void addElement_elementIsAdded(){
+    @Test
+    public void addOneElementWithTheIndex(){
         myArrayList.add("praise");
-        myArrayList.add("marvelous");
+        myArrayList.add("bimbim");
+        myArrayList.remove("bimbim");
+        assertEquals(1,myArrayList.getNumberOfElement());
     }
+
 }
 

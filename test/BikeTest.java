@@ -59,23 +59,105 @@ public class BikeTest {
         assertEquals(3, myBike.getSpeed());
 
     }
+    @Test
+    public void testGearIsThree_bikeCanAccelerateByThree(){
+        myBike.powerOn();
+        assertTrue(myBike.myBikeIsOn());
+
+        myBike.accelerateBike();
+        assertEquals(1,myBike.getSpeed());
+
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+
+        assertEquals(4, myBike.getSpeed());
+
+    }
+
+    @Test
+    public void testThatGearIsFour_bikCanAccelerateByFour(){
+        myBike.powerOn();
+        assertTrue(myBike.myBikeIsOn());
+
+        myBike.accelerateBike();
+        assertEquals(1,myBike.getSpeed());
+
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+
+        assertEquals(5, myBike.getSpeed());
+    }
 
     @Test
     public void testGear_bikeCanDecelerate() {
         myBike.powerOn();
         assertTrue(myBike.myBikeIsOn());
 
-        for (int index = 0; index < 16; index++) {
-            myBike.accelerateBike();
-        }
-        assertEquals(16, myBike.getSpeed());
-
-        for (int index = 16; index >= 1; index--) {
+        myBike.accelerateBike();
+        assertEquals(1, myBike.getSpeed());
             myBike.decelerateBike();
-        }
+
         assertEquals(0, myBike.getSpeed());
 
     }
+    @Test
+    public void testGearIsTwo_bikeCanDecelerateByTwo(){
+        myBike.powerOn();
+        assertTrue(myBike.myBikeIsOn());
+
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        assertEquals(3,myBike.getSpeed());
+
+        myBike.decelerateBike();
+        myBike.decelerateBike();
+
+        assertEquals(1, myBike.getSpeed());
+
+    }
+
+    @Test
+    public void testGearIsThree_bikeCanDecelerateByThree(){
+        myBike.powerOn();
+        assertTrue(myBike.myBikeIsOn());
+
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        assertEquals(3,myBike.getSpeed());
+
+        myBike.decelerateBike();
+        myBike.decelerateBike();
+        myBike.decelerateBike();
+
+        assertEquals(0, myBike.getSpeed());
+
+    }
+
+    @Test
+    public void testGearIsfour_bikeCanDecelerateByFout(){
+        myBike.powerOn();
+        assertTrue(myBike.myBikeIsOn());
+
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        myBike.accelerateBike();
+        assertEquals(3,myBike.getSpeed());
+
+        myBike.decelerateBike();
+        myBike.decelerateBike();
+        myBike.decelerateBike();
+        myBike.decelerateBike();
+        myBike.decelerateBike();
+        assertEquals(0, myBike.getSpeed());
+
+    }
+
+
 
     @Test
     public void testGearSpeedInRange() {

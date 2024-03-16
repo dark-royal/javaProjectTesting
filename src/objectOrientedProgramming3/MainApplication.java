@@ -144,24 +144,20 @@ switch (Integer.parseInt(option)){
                 username = input("Enter your username");
             }
             String password = input("Enter password");
-                while (password.trim().isEmpty()) {
-                    password = input("Enter password");
-                }
+            while (password.trim().isEmpty()) {
+                password = input("Enter password");
+            }
 
             diary = diaries.addDiary(username, password);
             print("diary is added successfully");
 
         } catch (Exception e) {
             print(e.getMessage());
-            String option =  input(mainMenu());
+            String option = input(mainMenu());
             option(option);
 
         }
-//        finally {
-//            mainMenu1();
-//        }
     }
-
 
 
     public  void unlockDiary() {

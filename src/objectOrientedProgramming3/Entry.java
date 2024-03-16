@@ -66,4 +66,8 @@ public class Entry {
                                 dateCreated: %s 
                                 time: %s""",id,title,body,dateCreated,time);
     }
+
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 }

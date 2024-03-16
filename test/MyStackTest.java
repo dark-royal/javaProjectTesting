@@ -31,7 +31,7 @@ public class MyStackTest {
         MyStack myStack = new MyStack(4);
         myStack.push(4);
         myStack.pop();
-        assertTrue(myStack.isEmpty());
+        assertEquals(0,myStack.getNumberOfElement());
 
     }
 
@@ -40,7 +40,7 @@ public class MyStackTest {
         myStack.push(4);
         myStack.push(3);
         myStack.pop();
-        assertFalse(myStack.isEmpty());
+        assertEquals(1,myStack.getNumberOfElement());
     }
 
 

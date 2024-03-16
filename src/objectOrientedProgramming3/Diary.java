@@ -54,8 +54,6 @@ public class Diary {
         else {
             int id = generateId();
             Entry entry = new Entry(id, "title", "body");
-            entry.getDateCreated();
-            entry.getTime();
             entries.add(entry);
 
         }

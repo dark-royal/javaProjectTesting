@@ -5,19 +5,16 @@ public class MyArrayList {
 
     private int numberOfElement;
 
-    private int[] elements;
-
-
 
     public MyArrayList(int size){
         this.size = size;
-        elements = new int[size];
+        int[] elements = new int[size];
 
     }
 
 
-    public int getSize(){
-        return size;
+    public int getNumberOfElement(){
+        return numberOfElement;
     }
 
     public boolean isEmpty() {
@@ -40,15 +37,16 @@ public class MyArrayList {
 
     public void add(String element){
 
-        size++;
+        numberOfElement++;
 
     }
 
     public void remove(String element) {
-        if (isEmpty()) throw new IndexOutOfBoundsException("no element found in the list");
-        size--;
+        if (!isEmpty()) numberOfElement++;
+        else {
+            throw new IndexOutOfBoundsException("no element found in the list");
+        }
     }
-
 
     }
 
