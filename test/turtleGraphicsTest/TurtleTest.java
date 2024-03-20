@@ -14,6 +14,11 @@ public class TurtleTest {
     private Turtle turtle;
     private SketchPad sketchPad;
 
+    @BeforeEach
+    public void initializer1(){
+        sketchPad = new SketchPad();
+    }
+
 
     @BeforeEach
     public void initializer(){

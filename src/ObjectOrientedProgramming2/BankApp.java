@@ -20,39 +20,40 @@ public class BankApp {
         JOptionPane.showMessageDialog(null,"output" );
     }
     public  static void mainMenu(){
-        System.out.println("Welcome to Zenith Bank");
-        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><>");
-        System.out.println("Here are set of thing you would like to look into\n" +
-                "\t\t\tEnter 1:Create Bank Account\n" +
-                "\t\t\tEnter 2:Deposit Amount\n" +
-                "\t\t\tEnter 3:Withdraw Amount\n" +
-                "\t\t\tEnter 4:Transfer Amount\n" +
-                "\t\t\tEnter 5:Remove Account\n" +
-                "\t\t\tEnter 6:Check Balance\n" +
-                "\t\t\tEnter 7:exit program");
-        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><><>");
-        options();
+        String returnValue = input("""
+                
+        Welcome to Zenith Bank
+        <><><><><><><><><><><><><><><><><><><><><><><><><>
+       
+        Here are set of thing you would like to look into
+        Enter 1:Create Bank Account
+        Enter 2:Deposit Amount
+        Enter 3:Withdraw Amount
+        Enter 4:Transfer Amount
+        Enter 5:Remove Accountl
+        Enter 6:Check Balance
+        Enter 7:exit program
+        <><><><><><><><><><><><><><><><><><><><><><><><><><>""");
+        options(returnValue);
     }
 
 
-    public static void options(){
-        String number = input("Enter options on what you would like to do");
+    public static void options(String number){
 
-        switch (number.charAt(0)){
-            case '1':
+        switch (number){
+            case "1":
                 createAccount();
-            case '2':
+            case "2":
                 depositAmount();
-            case '3':
+            case "3":
                 withdrawAmount();
-            case '4':
+            case "4":
                 transferAmount();
-
-            case '5':
+            case "5":
                 removeAccounts();
-            case '6':
+            case "6":
                checkBalances();
-            case '0':
+            case "7":
                 exitProgram();
             default:
                 mainMenu();
@@ -64,21 +65,42 @@ public class BankApp {
 
 
     public static void createAccount() {
-       String firstName = input("Enter first name");
-       String secondName = input("Enter second name");
-       String pin = input("Enter pin");
-        bank.registerCustomer(firstName,secondName,pin);
-        System.out.println("<<<<<<<Account created successfully>>>>>>>");
-        mainMenu();
+        try {
+            String firstName = input("Enter first name");
+            while (firstName.trim().isEmpty()) {
+                firstName = input("Enter first name");
+            }
+            String secondName = input("Enter second name");
+            while (secondName.trim().isEmpty()) {
+                secondName = input("Enter second name");
+            }
+            String pin = input("Enter pin");
+            while (pin.trim().isEmpty()) {
+                pin = input("Enter pin");
+            }
+            bank.registerCustomer(firstName, secondName, pin);
+            print("<<<<<<<Account created successfully>>>>>>>");
+        }catch (Exception e){
+            print(e.getMessage());
+        }
+        finally {
+            mainMenu();
+        }
     }
 
     public static void depositAmount() {
         try {
             String accountNumber = input("Enter account number to deposit");
+            while(accountNumber.trim().isEmpty()){
+                accountNumber = input("Enter account number to deposit");
+            }
             String amount = input("Enter amount to deposit");
+            while ((amount.trim().isEmpty())){
+                amount = input("Enter amount to deposit");
+            }
 
             bank.deposit(Integer.parseInt(amount), Integer.parseInt(accountNumber));
-            System.out.println("deposit successful" + " " + amount + " " + "have been deposited to" + " " + accountNumber);
+            print("deposit successful" + " " + amount + " " + "have been deposited to" + " " + accountNumber);
         }catch (Exception e) {
             print(e.getMessage());
             print("DO THE RIGHT THING");
@@ -96,11 +118,20 @@ public class BankApp {
     public static void withdrawAmount() {
         try{
             String accountNumber = input("Enter account number to withdraw from");
+            while(accountNumber.trim().isEmpty()){
+                accountNumber = input("Enter account number to withdraw from");
+            }
             String amount = input("Enter amount to withdraw");
+            while (amount.trim().isEmpty()){
+                amount = input("Enter amount to withdraw");
+            }
             String pin =input("Enter pin");
+            while(pin.trim().isEmpty()){
+                pin = input("Enter pin");
+            }
 
             bank.withdraw(Integer.parseInt(accountNumber), Integer.parseInt(amount), pin);
-            System.out.println("Withdraw successful" +  " " + amount + " " + " " + "was withdrawn");
+            print("Withdraw successful" +  " " + amount + " " + " " + "was withdrawn");
 
         }catch(Exception e) {
             print(e.getMessage());
@@ -116,15 +147,27 @@ public class BankApp {
     public static void transferAmount() {
             try {
                 String senderAccountNumber = input("Enter sender account number");
+                while(senderAccountNumber.trim().isEmpty()){
+                    senderAccountNumber = input("Enter sender account number");
+                }
                 String receiverAccountNumber = input("Enter receiver account number");
+                while (receiverAccountNumber.trim().isEmpty()){
+                    receiverAccountNumber = input("Enter receiver account number");
+                }
                 String amount = input("Enter amount");
+                while(amount.trim().isEmpty()){
+                    amount = input("Enter amount");
+                }
                 String pin = input("Enter pin");
+                while (pin.trim().isEmpty()){
+                    pin = input("Enter pin");
+                }
                 bank.transfer(Integer.parseInt(amount), Integer.parseInt(senderAccountNumber), Integer.parseInt(receiverAccountNumber), pin);
-                System.out.println(amount + " " + "is transferred from" + senderAccountNumber + "to" + receiverAccountNumber);
+                print(amount + " " + "is transferred from" + senderAccountNumber + "to" + receiverAccountNumber);
 
 
-                System.out.println(senderAccountNumber + "balance is remaining" + bank.checkBalance(pin, Integer.parseInt(senderAccountNumber)));
-                System.out.println(receiverAccountNumber + "balance is now" + bank.checkBalance(pin, Integer.parseInt(receiverAccountNumber)));
+                print(senderAccountNumber + "balance is remaining" + bank.checkBalance(pin, Integer.parseInt(senderAccountNumber)));
+                print(receiverAccountNumber + "balance is now" + bank.checkBalance(pin, Integer.parseInt(receiverAccountNumber)));
 
 
               }  catch (Exception e){
@@ -141,18 +184,49 @@ public class BankApp {
 
 
     public static void removeAccounts() {
+        try{
+            String accountNumber = input("Enter account number");
+            while (accountNumber.trim().isEmpty()){
+                accountNumber = input("Enter account number");
+            }
+
+            String pin = input("Enter pin");
+            while (pin.trim().isEmpty()){
+                pin = input("Enter pin");
+            }
+            bank.removeAccount(Integer.parseInt(accountNumber),pin);
+            print("Account removed successfully");
+        }catch (Exception e){
+            print(e.getMessage());
+        }
+        finally {
+            mainMenu();
+        }
 
     }
     public static void checkBalances() {
-        String accountNumber = input("Enter account number to check balance from");
-        String pin = input("Enter pin");
-        bank.checkBalance(pin,Integer.parseInt(accountNumber));
-        System.out.println("The balance of " + accountNumber + "is " + bank.checkBalance(pin, Integer.parseInt(accountNumber)));
+        try {
+            String accountNumber = input("Enter account number to check balance from");
+            while (accountNumber.trim().isEmpty()){
+                accountNumber = input("Enter account number to check balance from");
+            }
+            String pin = input("Enter pin");
+            while (pin.trim().isEmpty()){
+                pin = input("Enter pin");
+            }
+            bank.checkBalance(pin, Integer.parseInt(accountNumber));
+            print("The balance of " + accountNumber + "is " + bank.checkBalance(pin, Integer.parseInt(accountNumber)));
+        }catch (Exception e){
+            print(e.getMessage());
+        }
+        finally {
+            mainMenu();
+        }
     }
 
     public static void exitProgram(){
         System.exit(404);
-        System.out.println("<><><><><><><><>Thanks for banking with us<><><><><>");
+        print("<><><><><><><><>Thanks for banking with us<><><><><>");
     }
 
 }
