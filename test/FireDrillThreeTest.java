@@ -63,6 +63,11 @@ public class FireDrillThreeTest {
         assertEquals(expected,FireDrillThree.taskTen(array1));
 
     }
+
+    @Test
+    public void testScores(){
+        int
+    }
     }
 
 

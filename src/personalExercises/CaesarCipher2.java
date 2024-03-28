@@ -11,9 +11,9 @@ public class CaesarCipher2 {
             int i = (int) c;
             i -= shift;
 
-//            if(i < (int) 'a'){
-//                i += 26;
-//            }
+            if(i < (int) 'a'){
+                i += 26;
+            }
             char character = (char) i;
             message.append(character);
         }

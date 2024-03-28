@@ -25,10 +25,6 @@ public class FireDrillThree {
 
     public int[] taskThree(int[] scores) {
         for (int index = 0; index < 10; index++) {
-            System.out.println("Enter score");
-            scores[index] = scanner.nextInt();
-            System.out.print(scores + " ");
-
         }
         return scores;
     }
@@ -112,7 +108,7 @@ public class FireDrillThree {
     }
 
     public static int taskTen(int[] array1){
-        int minimum = Integer.MAX_VALUE;
+        int minimum = array1[0];
         for (int i : array1) {
             if (i % 2 != 0) {
                 if (i < minimum) {
