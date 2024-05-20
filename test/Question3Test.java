@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Question3Test {
 
-    @Test
-    public void sumOfArray(){
-        int [] array = {1,2,3,4,5,6,};
-        int result = 21;
-        assertEquals(result, Question3.arraySum(array));
-    }
+//    @Test
+//    public void sumOfArray(){
+//        int [] array = {1,2,3,4,5,6,};
+//        int result = 21;
+//        assertEquals(result, Question3.arraySum(array));
+//    }
 }
 
 //outputArray,Example.evenNumbers(array));

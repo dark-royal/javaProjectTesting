@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
      @Test
      public void testLcm(){
-         int[] number = {2,6,8};
-         int[] expected = {2};
-         assertArrayEquals(expected,Lcm.getLcm(number));
+         int[] number = {4,10,8};
+        int expected = 2;
+         assertEquals(expected,Lcm.getLcm(number));
      }
 
 

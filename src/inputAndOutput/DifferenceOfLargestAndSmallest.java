@@ -1,7 +1,5 @@
 package inputAndOutput;
 
-import java.util.Arrays;
-
 public class DifferenceOfLargestAndSmallest {
     public static int[] differnce(int[] array) {
         int maximum = array[0];

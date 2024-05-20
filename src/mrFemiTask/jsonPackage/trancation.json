@@ -1,0 +1,26 @@
+
+[
+  {
+    "id": 1,
+    "name": "praise",
+    "Type": "DEBIT",
+     "amount": 20000,
+    "date": "LocalDateTime.now()"
+  },
+
+  {
+    "id" : 2,
+    "name": "israel",
+    "Type": "CREDIT",
+    "amount": 30000,
+    "date": "LocalDateTime.now()"
+  },
+
+  {
+    "id" : 3,
+    "name": "bally",
+    "Type": "CREDIT",
+    "amount": 50000,
+    "date": "LocalDateTime.now()"
+  }
+]

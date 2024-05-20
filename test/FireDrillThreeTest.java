@@ -61,12 +61,6 @@ public class FireDrillThreeTest {
         int[] array1 = {2, 3, 7, 9, 13, 12, 9, 8, 6, 17, 8, 5};
         int expected = 3;
         assertEquals(expected,FireDrillThree.taskTen(array1));
-
-    }
-
-    @Test
-    public void testScores(){
-        int
     }
     }
 

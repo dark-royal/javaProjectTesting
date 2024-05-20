@@ -1,2 +1,6 @@
-package inputAndOutput;public class Difference {
+package inputAndOutput;
+
+public class Difference {
+
+
 }

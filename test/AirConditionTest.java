@@ -28,7 +28,7 @@ public class AirConditionTest {
     }
 
     @Test
-    public void acCanIncreaseTempereature(){
+    public void acCanIncreaseTemperature(){
         AirConditioner airConditioner = new AirConditioner();
         airConditioner.isOn();
         assertTrue(airConditioner.getAirConditionIsOn());

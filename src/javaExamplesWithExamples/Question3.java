@@ -7,13 +7,13 @@ import static javaExamplesWithExamples.Example.toArray;
 public class Question3 {
 
 
-    public static int arraySum(int[] array) {
-        int sum = 0;
-        for(int i = 0; i < array.length; i++){
-            sum += array[i];
-        }
-        return sum;
-    }
+//    public static int arraySum(int[] array) {
+//        int sum = 0;
+//        for(int i = 0; i < array.length; i++){
+//            sum += array[i];1
+//        }
+//        return sum;
+//    }
 
 //    public static int[] toArray(ArrayList<Integer> sum){
 //        int [] array = new int[sum.size()];

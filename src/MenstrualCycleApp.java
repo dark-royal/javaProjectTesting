@@ -75,7 +75,7 @@ public class MenstrualCycleApp {
                     cycleLength = scanner.nextInt();
                 }
 
-                System.out.println("Enter date of your last period");
+                System.out.println("Enter day of your last period");
                 int day = scanner.nextInt();
                 while (day > 31) {
                     System.out.println("Enter valid date");
